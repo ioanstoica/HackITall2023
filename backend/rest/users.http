@@ -1,0 +1,16 @@
+@api = http://localhost:8080/api
+
+### GET
+GET {{api}}/users
+Content-Type: application/json
+
+### POST
+POST {{api}}/users
+Content-Type: application/json
+
+{
+    "username": "vlad",
+    "password": "123456",
+    "email": "vlad@gmail.com"
+}
+
