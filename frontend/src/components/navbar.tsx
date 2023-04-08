@@ -26,6 +26,7 @@ export const Navbar = ({
       >
         <Tab value="home" label="Home" />
         <Tab value="game" label="Game" />
+        <Tab value="puzzle" label="Puzzle" />
       </Tabs>
     </Box>
   );
