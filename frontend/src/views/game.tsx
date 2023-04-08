@@ -1,9 +1,5 @@
 import React from "react";
-
+import Iframe from "react-iframe";
 export const Game = () => {
-  return (
-    <div>
-      <h1>Game</h1>
-    </div>
-  );
+  return <Iframe url="https://www.youtube.com/embed/2g811Eo7K8U" />;
 };
