@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 
-export const Login = ({ setIsLoaded }: any) => {
+export const Login = ({ setIsLoaded, setUserId }: any) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -28,9 +28,11 @@ export const Login = ({ setIsLoaded }: any) => {
   useEffect(() => {
     if (buttonPressed) {
       axios
-        .post(`http://localhost:8080/api/users/login/${username}`, {password})
+        .post(`http://localhost:8080/api/users/login/${username}`, { password })
         .then((response) => {
           console.log(response);
+          setUserId(response?.data[0]?.id);
+          console.log(">>>User: ", response?.data[0]?.id);
           if (response.status === 200) setIsLoaded(true);
         })
         .catch((error) => {

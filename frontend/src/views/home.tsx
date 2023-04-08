@@ -1,8 +1,9 @@
 import React from "react";
 import { Login } from "../components/login";
 import { Button } from "@mui/material";
+import { SelectGame } from "../components/selectGame";
 
-export const Home = ({ isLoaded, setIsLoaded }: any) => {
+export const Home = ({ isLoaded, setIsLoaded, userId, setUserId }: any) => {
   const handleClick = () => {
     setIsLoaded(false);
   };
@@ -10,9 +11,12 @@ export const Home = ({ isLoaded, setIsLoaded }: any) => {
     <div>
       <h1>Home</h1>
       {!isLoaded ? (
-        <Login setIsLoaded={setIsLoaded} />
+        <Login setIsLoaded={setIsLoaded} setUserId={setUserId} />
       ) : (
-        <Button onClick={handleClick}>Logout</Button>
+        <div>
+          <Button onClick={handleClick}>Logout</Button>
+          <SelectGame userId={userId} />
+        </div>
       )}
     </div>
   );
