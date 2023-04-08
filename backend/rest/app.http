@@ -1,0 +1,6 @@
+@api = http://localhost:8080/api
+
+### POST
+POST {{api}}/pgn
+Content-Type: application/json 
+
