@@ -4,8 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
-export const Navbar = ({
-}) => {
+export const Navbar = ({}) => {
   const navigate = useNavigate();
 
   const [selectedMenu, setSelectedMenu] = React.useState("home");
@@ -18,7 +17,7 @@ export const Navbar = ({
   return (
     <Box sx={{ width: "100%" }}>
       <Tabs
-        value = {selectedMenu}
+        value={selectedMenu}
         onChange={handleChange}
         textColor="secondary"
         indicatorColor="secondary"

@@ -10,6 +10,9 @@ export const SignUp = () => {
   const [buttonPressed, setButtonPressed] = useState(false);
   const [errorSingUp, setErrorSignUp] = useState(false);
 
+  let userAlreadyExists = false;
+  let allGood = false;
+
   const handleUsernameChange = (event: any) => {
     event.preventDefault();
     setButtonPressed(false);
@@ -33,21 +36,6 @@ export const SignUp = () => {
     console.log(">>>Password: ", password);
     console.log(">>>Email: ", email);
     setButtonPressed(true);
-    // axios
-    //   .post("http://localhost:8080/api/users", {
-    //     username,
-    //     password,
-    //     email,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     if (response.status === 200) {
-    //       setButtonPressed(true);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   useEffect(() => {
@@ -60,23 +48,13 @@ export const SignUp = () => {
         })
         .then((response) => {
           console.log(response);
-          if (response.status === 200) setButtonPressed(true);
+          if (response.status === 200) allGood = true;
+          if (response.status === 400) userAlreadyExists = true;
         })
         .catch((error) => {
           console.log(error);
           setErrorSignUp(true);
         });
-      // const url = "http://localhost:8080/api/users";
-      // const payload = {
-      //   method: "POST",
-      //   url,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   responseType: "json",
-      // };
-
-      // const response = axios.request(payload).then((response) => {console.log(response);});
     }
   }, [buttonPressed, username, password, email]);
 
@@ -87,6 +65,14 @@ export const SignUp = () => {
         Password: <TextField onChange={handlePasswordChange} id="password" />
         Email: <TextField onChange={handleEmailChange} id="email" />
         <Button onClick={handleClick}>Sign Up</Button>
+      </div>
+    );
+  }
+  if (userAlreadyExists) {
+    return (
+      <div>
+        An account with the username {username} already exists. Please refresh
+        and choose another username.
       </div>
     );
   }
