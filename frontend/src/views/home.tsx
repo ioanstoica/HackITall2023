@@ -10,7 +10,7 @@ export const Home = ({ isLoaded, setIsLoaded }: any) => {
     <div>
       <h1>Home</h1>
       {!isLoaded ? (
-        <Login setIsLoaded />
+        <Login setIsLoaded={setIsLoaded} />
       ) : (
         <Button onClick={handleClick}>Logout</Button>
       )}

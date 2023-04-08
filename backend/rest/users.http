@@ -4,6 +4,10 @@
 GET {{api}}/users/login/vlad
 Content-Type: application/json
 
+{
+    "password": "123456"
+}
+
 ### POST
 POST {{api}}/users
 Content-Type: application/json

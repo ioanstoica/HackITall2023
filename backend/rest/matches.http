@@ -1,0 +1,21 @@
+@api = http://localhost:8080/api
+
+### GET
+GET {{api}}/users/login/vlad
+Content-Type: application/json
+
+{
+    "password": "123456"
+}
+
+### POST
+POST {{api}}/matches
+Content-Type: application/json
+
+{
+    "id_juc_1": "21",
+    "id_juc_2": "1",
+    "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "data": "Sat Apr 08 2023 20:57:50 GMT+0300 (Eastern European Summer Time)"
+}
+

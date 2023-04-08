@@ -1,9 +1,10 @@
 const router = require("express").Router({ mergeParams: true });
 const { knex } = require("../services/mysql");
 
-router.get("/users/login/:username", async (req, res, next) => {
+router.post("/users/login/:username", async (req, res, next) => {
   try {
-    const { username, password } = req.params;
+    const username = req.params.username;
+    const password = req.body.password;
     const users = await knex("users").where({ username, password });
     if (users.length === 0) {
       res.status(400);

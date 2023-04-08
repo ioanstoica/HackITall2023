@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
-export const Navbar = ({}) => {
+export const Navbar = ({ isLoaded }: any) => {
   const navigate = useNavigate();
 
   const [selectedMenu, setSelectedMenu] = React.useState("home");
@@ -26,7 +26,7 @@ export const Navbar = ({}) => {
         <Tab value="home" label="Home" />
         <Tab value="game" label="Game" />
         <Tab value="puzzle" label="Puzzle" />
-        <Tab value="signup" label="Sign Up" />
+        {!isLoaded && <Tab value="signup" label="Sign Up" />}
       </Tabs>
     </Box>
   );

@@ -28,7 +28,7 @@ export const Login = ({ setIsLoaded }: any) => {
   useEffect(() => {
     if (buttonPressed) {
       axios
-        .get(`http://localhost:8080/api/users/login/${username}`)
+        .post(`http://localhost:8080/api/users/login/${username}`, {password})
         .then((response) => {
           console.log(response);
           if (response.status === 200) setIsLoaded(true);
