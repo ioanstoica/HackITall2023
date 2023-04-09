@@ -157,6 +157,9 @@
    <script>
       var fen = '<%- fen %>';
       var id_juc = '<%- id_juc %>';
+
+
+
       console.log("<<<< fen" + fen);
       console.log("<<<< id_juc" + id_juc);
 
@@ -231,6 +234,7 @@
 
          $.getScript('js/board-time.js', initGameBoard('desktop'));
          $.getScript('js/board-actions.js', initGameBoard('desktop'));
+
          $.getScript('js/board-actions-desktop.js', initGameBoard('desktop'));
          $.getScript('js/board-init.js', initGameBoard('desktop'));
 
@@ -253,7 +257,7 @@
             if (desktopLibs == 0) {
                console.log('Desktop loaded');
                setTimeout(function () {
-                  setDesktopBoard();
+                  setDesktopBoard(fen);
                }, 1000);
             }
          }
