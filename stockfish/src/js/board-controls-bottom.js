@@ -35,34 +35,6 @@ $('#btn-switch-sides').on('click', function () {
 
 // Save PGN string popup
 
-$('#btn-save-pgn').on('click', function () {
-
-  // ++ Add fen to database
-  // https://4f0b0b47-0f61-47a3-8d59-d37a76077520.mock.pstmn.io/api/fen
-  fetch('http://localhost:8080/api/matches', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      id_juc_1: '21',
-      id_juc_2: '1',
-      fen: game.fen(),
-      data: (new Date()).toString()
-    })
-  });
-
-
-  if ($('#board-save-pgn-area').hasClass('hidden')) {
-    $('#board-load-fen-area, #board-load-pgn-area').addClass('hidden');
-    $('#board-save-pgn-area').removeClass('hidden');
-    $('#board-save-pgn-area textarea').text(game.pgn()).focus().select();
-  } else {
-    $('#board-save-pgn-area').addClass('hidden');
-  }
-});
-
 // Disable engine
 
 $('#btn-engine-disable').on('click', function () {

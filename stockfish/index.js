@@ -10,7 +10,10 @@ const template = fs.readFileSync('src/index.ejs', 'utf8');
 const data = { title: 'My Title', message: 'Hello My World!' };
 
 app.get('/', (req, res) => {
-   res.send(ejs.render(template));
+   var id_juc = req.query.id;
+   var fen = req.query.fen;
+
+   res.send(ejs.render(template, { id_juc, fen }));
 })
 
 

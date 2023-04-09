@@ -154,8 +154,12 @@
    <script src="js/jquery-3.6.0.min.js"></script>
    <script src="js/chess.min.js"></script>
    <script src="js/ltpgnviewer.js"></script>
-
    <script>
+      var fen = '<%- fen %>';
+      var id_juc = '<%- id_juc %>';
+      console.log("<<<< fen" + fen);
+      console.log("<<<< id_juc" + id_juc);
+
       function is_touch_device() {
          return 'ontouchstart' in window || navigator.maxTouchPoints;
       };
@@ -192,6 +196,37 @@
          $.getScript('js/chessboard.min.js', initGameBoard('desktop'));
          $.getScript('js/board-controls-side.js', initGameBoard('desktop'));
          $.getScript('js/board-controls-bottom.js', initGameBoard('desktop'));
+
+         $('#btn-save-pgn').on('click', function () {
+
+            // ++ Add fen to database
+            // https://4f0b0b47-0f61-47a3-8d59-d37a76077520.mock.pstmn.io/api/fen
+            fetch('http://localhost:8080/api/matches', {
+               method: 'POST',
+               headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify({
+                  id_juc_1: id_juc,
+                  id_juc_2: '1',
+                  fen: game.fen(),
+                  data: (new Date()).toString()
+               })
+            }).then(function (response) {
+               console.log(response);
+            });
+
+
+            if ($('#board-save-pgn-area').hasClass('hidden')) {
+               $('#board-load-fen-area, #board-load-pgn-area').addClass('hidden');
+               $('#board-save-pgn-area').removeClass('hidden');
+               $('#board-save-pgn-area textarea').text(game.pgn()).focus().select();
+            } else {
+               $('#board-save-pgn-area').addClass('hidden');
+            }
+         });
+
          $.getScript('js/board-sets.js', initGameBoard('desktop'));
 
          $.getScript('js/board-time.js', initGameBoard('desktop'));
