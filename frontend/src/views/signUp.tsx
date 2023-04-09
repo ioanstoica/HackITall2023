@@ -93,7 +93,7 @@ export const SignUp = () => {
                 />
               </div>
               <button onClick={handleClick} className="button signup__submit">
-                <span className="button__text">Log In</span>
+                <span className="button__text">Sign Up</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </form>
