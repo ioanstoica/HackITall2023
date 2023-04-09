@@ -19,16 +19,10 @@ export const SelectGame = ({ setFen, userId }: any) => {
 
   const handleChange = (chosen: any) => {
     const { value } = chosen;
-    console.log(">>>VALUE: ", value);
     setSelectedGame(value);
-    console.log(">>>Games: ", games);
     for (let game of games) {
       if (game.id === value) {
         setFen(game.fen);
-        console.log(">>>>>>>>>>Object: ", {
-          userId,
-          fen: game.fen,
-        });
         setGameFound(true);
         break;
       }
@@ -40,7 +34,6 @@ export const SelectGame = ({ setFen, userId }: any) => {
       .get(`http://localhost:8080/api/matches/${userId}`)
       .then((response) => {
         console.log(">>>Response: ", response);
-        // console.log(">>>User: ", response?.data[0]?.id);
         if (response.status === 200) setGames(response.data);
       })
       .catch((error) => {
