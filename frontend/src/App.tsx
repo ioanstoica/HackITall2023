@@ -46,7 +46,7 @@ function App() {
               }
             />
             <Route path="/game" element={<Game gameObj={gameObj}/>} />
-            <Route path="/puzzle" element={<Puzzle />} />
+            <Route path="/puzzle" element={<Puzzle userId={userId}/>} />
             {!isLoaded && <Route path="/signup" element={<SignUp />} />}
           </Routes>
         </Router>
