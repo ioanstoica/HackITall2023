@@ -84,24 +84,24 @@ body {
 	border-radius: 60px;
 }
 
-.login {
+.signup {
 	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
 }
 
-.login__field {
+.signup__field {
 	padding: 20px 0px;	
 	position: relative;	
 }
 
-.login__icon {
+.signup__icon {
 	position: absolute;
 	top: 30px;
 	color: #7875B5;
 }
 
-.login__input {
+.signup__input {
 	border: none;
 	border-bottom: 4px solid #D1D1D4;
 	background: none;
@@ -112,14 +112,14 @@ body {
 	transition: .2s;
 }
 
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
+.signup__input:active,
+.signup__input:focus,
+.signup__input:hover {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
 
-.login__submit {
+.signup__submit {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
@@ -137,9 +137,9 @@ body {
 	transition: .2s;
 }
 
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
+.signup__submit:active,
+.signup__submit:focus,
+.signup__submit:hover {
 	border-color: #6A679E;
 	outline: none;
 }

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import "./select.css";
+
 export const SelectGame = ({ userId, setGameObj }: any) => {
   const [games, setGames] = useState([
     { id: 0, id_juc_1: 0, id_juc_2: 0, data: "", fen: "" },
@@ -43,9 +45,10 @@ export const SelectGame = ({ userId, setGameObj }: any) => {
 
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+      <FormControl className="formControll">
         <InputLabel id="demo-simple-select-label">Game</InputLabel>
         <Select
+          className="selectGame"
           value={selectedGame}
           label="Choose Game"
           onChange={handleChange}

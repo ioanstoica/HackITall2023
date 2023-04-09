@@ -1,0 +1,14 @@
+.selectGame {
+    width: 250p;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formControll {
+    width: 250px;
+    margin-right: -20px;
+    margin-left: 50px;
+}
