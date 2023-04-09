@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = express()
 const port = 8081
 
-app.use(express.static('public'))
+app.use(express.static('src'))
 
 const template = fs.readFileSync('src/index.ejs', 'utf8');
 const data = { title: 'My Title', message: 'Hello My World!' };
