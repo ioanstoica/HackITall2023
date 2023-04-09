@@ -43,5 +43,10 @@ export const SelectGame = ({ setFen, userId }: any) => {
 
   if (gameFound) return <Navigate to="/game" />;
 
-  return <Select options={gamesDropdown} onChange={handleChange} />;
+  return (
+    <div>
+      <div>In this section you can load a previous saved game!</div>
+      <Select options={gamesDropdown} onChange={handleChange} />;
+    </div>
+  );
 };
