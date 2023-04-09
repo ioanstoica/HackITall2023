@@ -9,11 +9,10 @@ app.use(express.static('src'))
 const template = fs.readFileSync('src/index.ejs', 'utf8');
 const data = { title: 'My Title', message: 'Hello My World!' };
 
-const renderedTemplate = ejs.render(template, data);
-
 app.get('/', (req, res) => {
-   res.send(renderedTemplate)
+   res.send(ejs.render(template));
 })
+
 
 
 
