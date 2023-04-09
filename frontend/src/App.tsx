@@ -12,6 +12,8 @@ function App() {
 
   const [gameObj, setGameObj] = React.useState({ id: 0, fen: "" });
 
+  const [fen, setFen] = React.useState("");
+
   console.log(">>>App.tsx: ", isLoaded);
   return (
     <div>
@@ -29,6 +31,8 @@ function App() {
                   setUserId={setUserId}
                   gameObj={gameObj}
                   setGameObj={setGameObj}
+                  fen={fen}
+                  setFen={setFen}
                 />
               }
             />
@@ -42,10 +46,12 @@ function App() {
                   setUserId={setUserId}
                   gameObj={gameObj}
                   setGameObj={setGameObj}
+                  fen={fen}
+                  setFen={setFen}
                 />
               }
             />
-            <Route path="/game" element={<Game gameObj={gameObj}/>} />
+            <Route path="/game" element={<Game userId={userId} fen={fen}/>} />
             <Route path="/puzzle" element={<Puzzle userId={userId}/>} />
             {!isLoaded && <Route path="/signup" element={<SignUp />} />}
           </Routes>

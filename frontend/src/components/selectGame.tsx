@@ -1,11 +1,11 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
+import Select from "react-select";
 
 import "./select.css";
 
-export const SelectGame = ({ userId, setGameObj }: any) => {
+export const SelectGame = ({ setFen, userId }: any) => {
   const [games, setGames] = useState([
     { id: 0, id_juc_1: 0, id_juc_2: 0, data: "", fen: "" },
   ]);
@@ -13,15 +13,22 @@ export const SelectGame = ({ userId, setGameObj }: any) => {
 
   const [gameFound, setGameFound] = useState(false);
 
-  const navigate = useNavigate();
+  const gamesDropdown = games.map((game) => {
+    return { value: game.id, label: game.data };
+  });
 
-  const handleChange = (event: any) => {
-    console.log(">>>VALUE: ", event.target.value);
-    setSelectedGame(event.target.value);
+  const handleChange = (chosen: any) => {
+    const { value } = chosen;
+    console.log(">>>VALUE: ", value);
+    setSelectedGame(value);
+    console.log(">>>Games: ", games);
     for (let game of games) {
-      if (game.id === event.target.value) {
-        setGameObj({ id: game.id, fen: game.fen });
-        console.log(">>>>>>>>>>Object: ", { id: game.id, fen: game.fen });
+      if (game.id === value) {
+        setFen(game.fen);
+        console.log(">>>>>>>>>>Object: ", {
+          userId,
+          fen: game.fen,
+        });
         setGameFound(true);
         break;
       }
@@ -43,21 +50,5 @@ export const SelectGame = ({ userId, setGameObj }: any) => {
 
   if (gameFound) return <Navigate to="/game" />;
 
-  return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl className="formControll">
-        <InputLabel id="demo-simple-select-label">Game</InputLabel>
-        <Select
-          className="selectGame"
-          value={selectedGame}
-          label="Choose Game"
-          onChange={handleChange}
-        >
-          {games.map((game) => {
-            return <MenuItem value={game.id}>{game.data}</MenuItem>;
-          })}
-        </Select>
-      </FormControl>
-    </Box>
-  );
+  return <Select options={gamesDropdown} onChange={handleChange} />;
 };

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button, TextField } from "@mui/material";
 import "./login.css";
 import axios from "axios";
 
@@ -24,7 +23,7 @@ export const Login = ({ setIsLoaded, setUserId }: any) => {
     setPassword(event.target.value);
   };
 
-  const handleClick = (event:any) => {
+  const handleClick = (event: any) => {
     event.preventDefault();
     console.log(">>>Username: ", username);
     console.log(">>>Password: ", password);
@@ -49,21 +48,6 @@ export const Login = ({ setIsLoaded, setUserId }: any) => {
     }
   });
   return (
-    // <div className="login">
-    //   <TextField
-    //     className="username"
-    //     onChange={handleUsernameChange}
-    //     label="Username"
-    //     id="username"
-    //   />
-    //   <TextField
-    //     className="password"
-    //     onChange={handlePasswordChange}
-    //     label="Password"
-    //     id="password"
-    //   />
-    //   <Button onClick={handleClick}>Login</Button>
-    // </div>
     <div className="container">
       <div className="screen">
         <div className="screen__content">

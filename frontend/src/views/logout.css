@@ -31,3 +31,14 @@
 	margin-left: auto;
 	color: #7875B5;
 }
+
+.sample-container {
+    width: 80%;
+    aspect-ratio: 2/1;
+    margin: auto;
+    border: solid black 2px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: y mandatory;
+}
