@@ -2,6 +2,7 @@ import React from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "./signup.css"
 
 export const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -60,11 +61,50 @@ export const SignUp = () => {
 
   if (!buttonPressed) {
     return (
-      <div>
-        Username: <TextField onChange={handleUsernameChange} id="username" />
-        Password: <TextField onChange={handlePasswordChange} id="password" />
-        Email: <TextField onChange={handleEmailChange} id="email" />
-        <Button onClick={handleClick}>Sign Up</Button>
+      <div className="container">
+        <div className="screen">
+          <div className="screen__content">
+            <form className="signup">
+              <div className="signup__field">
+                <i className="signup__icon fas fa-user"></i>
+                <input
+                  onChange={handleUsernameChange}
+                  type="text"
+                  className="signup__input"
+                  placeholder="Username"
+                />
+              </div>
+              <div className="signup__field">
+                <i className="signup__icon fas fa-lock"></i>
+                <input
+                  onChange={handlePasswordChange}
+                  type="password"
+                  className="signup__input"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="signup__field">
+                <i className="signup__icon fas fa-email"></i>
+                <input
+                  onChange={handleEmailChange}
+                  type="text"
+                  className="signup__input"
+                  placeholder="Email"
+                />
+              </div>
+              <button onClick={handleClick} className="button signup__submit">
+                <span className="button__text">Log In</span>
+                <i className="button__icon fas fa-chevron-right"></i>
+              </button>
+            </form>
+          </div>
+          <div className="screen__background">
+            <span className="screen__background__shape screen__background__shape4"></span>
+            <span className="screen__background__shape screen__background__shape3"></span>
+            <span className="screen__background__shape screen__background__shape2"></span>
+            <span className="screen__background__shape screen__background__shape1"></span>
+          </div>
+        </div>
       </div>
     );
   }
